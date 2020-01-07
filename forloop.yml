@@ -1,0 +1,15 @@
+  
+- hosts: all
+  become: true
+  gather_facts: no
+  vars:
+   x:
+    - httpd
+    - git
+  tasks:
+   - name: installing packages
+     yum:
+       name: '{{ item }}'
+       state: latest
+     with_items: '{{ x }}'
+ 
