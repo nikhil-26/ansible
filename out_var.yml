@@ -1,0 +1,7 @@
+- hosts: apache
+  tasks :
+   - name:
+      package: "{{ x }}"
+       state: present
+ // make group_var(for whole group) ------ make file with group name and declare value of x in it
+ // for any particular host--mkdir host_var ---- make file with host ip and declare value of x in it
