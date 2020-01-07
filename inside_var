@@ -1,0 +1,15 @@
+
+- hosts: all
+  vars:
+    x:
+     - {'a':'rrt','b':'redhat'}
+     - {'a':'dd','b':'redhat'}
+
+  tasks:
+   - name: createing user
+     user:
+      name: "{{ item.a }}"
+      shell: /bin/bash
+      state: present
+      password: "{{ item.b | password_hash('sha256') }}"
+     with_items: "{{ x }}"
