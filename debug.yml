@@ -1,0 +1,6 @@
+- hosts: apache
+  tasks:
+   - name:
+     command: ifconfig
+     register: my
+   - debug: var=my

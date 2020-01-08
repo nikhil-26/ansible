@@ -1,0 +1,11 @@
+- hosts: apache
+  vars:
+   x:
+    - httpd
+    - git
+  tasks:
+   - name: packages
+     yum:
+      name: "{{ item }}"
+      state: present
+     with_items: "{{ x }}"
